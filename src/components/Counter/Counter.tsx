@@ -1,31 +1,33 @@
-import React, { useState } from 'react'
+"use client";
+import React, { useState } from "react";
+import styles from "./styles.module.css";
 
-const Counter: React.FC<{ initialCount: number; }> = ({ initialCount }) => {
-  const [counter, setCounter] = useState(initialCount || 0);
+interface CounterProps {
+  initialCount?: number;
+}
 
-  const increase = () => {
-    setCounter(count => count + 1);
+function Counter({ initialCount = 99 }: CounterProps) {
+  const [count, setCount] = useState(initialCount);
+
+  const increment = () => {
+    setCount((prevCount) => prevCount + 1);
   };
 
-  const decrease = () => {
-    setCounter(count => count - 1);
+  const decrement = () => {
+    setCount((prevCount) => prevCount - 1);
   };
-
-  const reset = () =>{
-    setCounter(0)
-  }
 
   return (
-    <div className="counter">
-      <h1>React Counter</h1>
-      <span>{counter}</span>
-      <div>
-        <button onClick={increase}>+</button>
-        <button onClick={decrease}>-</button>
-        <button onClick={reset}>Reset</button>
-      </div>
+    <div className={styles.counter}>
+      <button className={styles.btn} onClick={decrement}>
+        -
+      </button>
+      <span className={styles.count}>{count}</span>
+      <button className={styles.btn} onClick={increment}>
+        +
+      </button>
     </div>
   );
-};
+}
 
 export default Counter;
