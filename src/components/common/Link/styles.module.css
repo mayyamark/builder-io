@@ -1,0 +1,25 @@
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: black;
+  padding: 40px;
+  text-decoration: none;
+  background-color: #F3F3F3;
+  text-transform: capitalize;
+  text-align: center;
+  transition: background .3s,border .3s,border-radius .3s,box-shadow .3s,transform;
+}
+
+.link:hover {
+  background-color: #FFCC99;
+}
+
+@media screen and (min-width: 1200px) {
+  .link {
+    font-size: 30px;
+    text-align: left;
+    width: unset;
+  }
+}
