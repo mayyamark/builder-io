@@ -7,7 +7,7 @@ interface CustomApolloProviderProps {
 }
 
 const apolloClient = new ApolloClient({
-  uri: `https://cdn.builder.io/api/v1/graphql/${process.env.NEXT_PUBLIC_BUILDER_API_KEY!}?query=QUERY`,
+  uri: `https://cdn.builder.io/api/v1/graphql/${process.env.NEXT_PUBLIC_BUILDER_API_KEY!}`,
   cache: new InMemoryCache(),
 });
 

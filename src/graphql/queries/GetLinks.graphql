@@ -1,0 +1,8 @@
+query GetLinks {
+  link {
+    data {
+      href
+      label
+    }
+  }
+}
