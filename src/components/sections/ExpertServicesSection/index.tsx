@@ -1,13 +1,13 @@
 import Link from "@/components/common/Link";
 import styles from "./styles.module.css";
-import { useGetLinksQuery } from "@/graphql/queries/__generated__/GetLinks.types";
+// import { useGetLinksQuery } from "@/graphql/queries/__generated__/GetLinks.types";
 
-const title = 'Title';
+const ExpertServicesSection = (props: any) => {
+  // const { data, loading } = useGetLinksQuery();
 
-const ExpertServicesSection = () => {
-  const { data, loading } = useGetLinksQuery();
+  const data = JSON.parse(JSON.stringify(props.builderState.state))
 
-  if (loading) {
+  if (data.loading) {
     return <div>Loading</div>
   }
 
@@ -15,10 +15,10 @@ const ExpertServicesSection = () => {
     <section className={styles['expert-services-section']}>
       <div className={styles['section-container']}>
         <h1 className={styles['section-title']}>
-          {title}
+          {props.title}
         </h1>
         <div className={styles['buttons-container']}>
-          {data && data.link && data.link.map((link) => (
+          {data.data.link && data.data.link.map((link: any) => (
             <Link key={link?.data?.href} href={link?.data?.href || '/'}>{link?.data?.label}</Link>
           ))}
         </div>
