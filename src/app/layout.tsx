@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from 'next/font/local'
+import ApolloProvider from "@/components/common/ApolloProvider";
 import "./globals.css";
 
 const accordAlt = localFont({
@@ -29,7 +30,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={accordAlt.className}>{children}</body>
+      <body className={accordAlt.className}>
+        <ApolloProvider>
+          {children}
+        </ApolloProvider>
+      </body>
     </html>
   );
 }
