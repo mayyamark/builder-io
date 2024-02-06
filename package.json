@@ -10,7 +10,8 @@
     "generate-types": "graphql-codegen --config ./codegen.ts"
   },
   "dependencies": {
-    "@apollo/client": "^3.9.2",
+    "@apollo/client": "^3.9.0-alpha.5",
+    "@apollo/experimental-nextjs-app-support": "^0.8.0",
     "@builder.io/dev-tools": "^0.2.10",
     "@builder.io/react": "^3.2.1",
     "@builder.io/sdk": "^2.2.1",
