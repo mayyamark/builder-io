@@ -1,19 +1,15 @@
 import Link from "@/components/common/Link";
 import styles from "./styles.module.css";
+import { useGetLinksQuery } from "@/graphql/queries/__generated__/GetLinks.types";
 
 const title = 'Title';
 
-const links = [{
-  id: 1,
-  href: 'https://accedia.com/services/technology-consulting-services/business-analysis-services/',
-  text: 'Text1'
-}, {
-  id: 2,
-  href: 'https://accedia.com/services/technology-consulting-services/ui-ux-design-services/',
-  text: 'Text2'
-}, ];
-
 const ExpertServicesSection = () => {
+  const { data, loading } = useGetLinksQuery();
+
+  if (loading) {
+    return <div>Loading</div>
+  }
 
   return (
     <section className={styles['expert-services-section']}>
@@ -22,8 +18,8 @@ const ExpertServicesSection = () => {
           {title}
         </h1>
         <div className={styles['buttons-container']}>
-          {links.map(({ id, href, text }) => (
-            <Link key={id} href={href}>{text}</Link>
+          {data && data.link && data.link.map((link) => (
+            <Link key={link?.data?.href} href={link?.data?.href || '/'}>{link?.data?.label}</Link>
           ))}
         </div>
       </div>
