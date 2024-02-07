@@ -22,18 +22,20 @@ const getLinks = async () => {
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ query: `
-      query GetLinks {
-        link {
-          data {
-            href
-            label
+    body: JSON.stringify({ 
+      query: `
+        query GetLinks {
+          link {
+            data {
+              href
+              label
+            }
           }
         }
-      }
       ` 
-    }),
-  });
+    }
+  ),
+});
 
   const links = await response.json();
 

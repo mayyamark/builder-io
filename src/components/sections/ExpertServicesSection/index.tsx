@@ -19,7 +19,7 @@ const ExpertServicesSection = (props: any) => {
         </h1>
         <div className={styles['buttons-container']}>
           {data.data.link && data.data.link.map((link: any) => (
-            <Link key={link?.data?.href} href={link?.data?.href || '/'}>{link?.data?.label}</Link>
+            <Link key={link.data.href} href={link.data.href}>{link.data.label}</Link>
           ))}
         </div>
       </div>
