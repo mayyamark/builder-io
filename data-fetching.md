@@ -1,5 +1,7 @@
 # Data fetching
 ## Client-side with generated queries
+- Use Apollo Client to cache the queries
+- Use Codegen to generate TS types and queries 
 ```javascript
 import { useGetLinksQuery } from "@/graphql/queries/__generated__/GetLinks.types";
 
@@ -20,6 +22,8 @@ const Component = () => {
 
 ## Server-side
 ### With Apollo's experimental Next.js 13 packages
+- Use Apollo Client & the experimental packages to cache the queries
+- Use Codegen to generate TS types and queries 
 ```javascript
 // apollo.ts
 import { ApolloClient, HttpLink, InMemoryCache } from "@apollo/client";
@@ -74,6 +78,7 @@ const Component = (props: ComponentProps) => {
 ```
 
 ### Using just Fetch API
+- Do not use Apollo at all
 ```javascript
 // src/requests/getLinks.tsx
 const getLinks = async () => {
@@ -103,8 +108,6 @@ const getLinks = async () => {
 
 ```javascript
 // src/app/.../page.tsx
-export const dynamic = "force-dynamic";
-
 const Page async (props: PageProps) => {
   const data = await getLinks();
 
